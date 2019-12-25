@@ -9,16 +9,19 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class ClientController {
     @GetMapping("/home")
-    public ModelAndView homePage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user/home");
+    public ModelAndView homePage(ModelAndView modelAndView) {
+        modelAndView.setViewName("/user/home");
         return modelAndView;
     }
 
     @GetMapping("/admin")
-    public ModelAndView adminPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("admin/admin");
+    public ModelAndView adminPage(ModelAndView modelAndView) {
+        modelAndView.setViewName("/admin/admin");
+        return modelAndView;
+    }
+    @GetMapping("/login")
+    public ModelAndView loginUsers(ModelAndView modelAndView) {
+        modelAndView.setViewName("login");
         return modelAndView;
     }
 }

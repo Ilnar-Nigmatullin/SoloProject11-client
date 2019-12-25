@@ -9,20 +9,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Service("userDetailService")
-@Transactional
+@Service("userDetailsService")
 public class MyUserDetailsService implements UserDetailsService {
     private RestService restService;
 
     @Autowired
-
     public MyUserDetailsService(RestService restService) {
         this.restService = restService;
     }

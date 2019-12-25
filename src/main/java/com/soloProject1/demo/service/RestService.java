@@ -53,7 +53,7 @@ public class RestService {
     }
 
     public User findByUsername(String username) {
-        String url = "http://localhost:8080/admin/rest/find/byUserName" + username;
+        String url = "http://localhost:8080/admin/rest/find/byUserName/" + username;
         return restTemplate.getForObject(url, User.class);
     }
 }

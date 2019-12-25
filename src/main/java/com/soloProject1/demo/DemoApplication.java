@@ -8,12 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@ComponentScan("com.soloProject1.demo")
+//@ComponentScan("com.soloProject1.demo")
 public class DemoApplication {
 
     @Bean
     public RestTemplate getRestTemplate(RestTemplateBuilder builder) {
-        return builder.basicAuthentication("admin", "adminPass").build();
+        return builder.basicAuthentication("a", "a").build();
     }
 
     public static void main(String[] args) {
