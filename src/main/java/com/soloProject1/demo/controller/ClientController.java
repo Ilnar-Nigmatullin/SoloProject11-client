@@ -8,13 +8,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/")
 public class ClientController {
-    @GetMapping("/home")
+    @GetMapping("/user/home")
     public ModelAndView homePage(ModelAndView modelAndView) {
         modelAndView.setViewName("/user/home");
         return modelAndView;
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/admin/allusers")
     public ModelAndView adminPage(ModelAndView modelAndView) {
         modelAndView.setViewName("/admin/admin");
         return modelAndView;

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class ClientRestController {
     private RestService restService;
 
@@ -25,8 +26,8 @@ public class ClientRestController {
         restService.addUser(user);
     }
 
-    @PutMapping("/admin/rest/update/{id}")
-    public void updateUser(@PathVariable User user) {
+    @PutMapping("/admin/rest/update")
+    public void updateUser(@RequestBody User user) {
         restService.updateUser(user);
     }
 

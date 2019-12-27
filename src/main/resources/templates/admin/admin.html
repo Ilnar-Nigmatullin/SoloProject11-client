@@ -33,12 +33,12 @@
     <div class="row">
         <div class="col-2">  <!--Левая панель-->
             <div sec:authorize="hasRole('ROLE_ADMIN')">
-                <a href="http://localhost:8080/admin/allusers" class="btn btn-menu btn-block" role="button">
+                <a href="http://localhost:8081/admin/allusers" class="btn btn-menu btn-block" role="button">
                     Admin
                 </a>
             </div>
             <div sec:authorize="hasRole('ROLE_USER')">
-                <a href="http://localhost:8080/home" class="btn btn-menu2 btn-block" role="button">
+                <a href="http://localhost:8081/home" class="btn btn-menu2 btn-block" role="button">
                     User
                 </a>
             </div>

@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'DELETE',
-            url: "/admin/rest/delete/" + id,
+            url: "http://localhost:8081/admin/rest/delete/" + id,
 
             contentType: 'application/json;',
             data: JSON.stringify(id),

@@ -33,7 +33,7 @@ $(document).ready(function () {
         $.ajax({
 
             type: 'POST',
-            url: "/admin/rest/create",
+            url: "http://localhost:8081/admin/rest/create",
 
             contentType: 'application/json;',
             data: JSON.stringify(user),

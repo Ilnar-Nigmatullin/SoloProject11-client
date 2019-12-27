@@ -6,6 +6,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -33,24 +35,23 @@ public class RestService {
         restTemplate.postForObject(url, request, User.class);
     }
 
-    public User updateUser(User user) {
+    public void updateUser(User user) {
         String url = "http://localhost:8080/admin/rest/update";
-        HttpHeaders headers = new HttpHeaders();    /*Представляет заголовки HTTP-запросов и ответов, отображая имена
-                                                     заголовков строк в список значений строк.*/
+        HttpHeaders headers = new HttpHeaders();
         HttpEntity<User> request = new HttpEntity<>(user, headers);
         restTemplate.put(url, request, User.class);
-        return user;
     }
 
     public void deleteUser(Integer id) {
         String url = "http://localhost:8080/admin/rest/delete/" + id;
         restTemplate.delete(url);
     }
-
+    @ResponseBody
     public User getUserById(Integer id) {
         String url = "http://localhost:8080/admin/rest/update/" + id;
         return restTemplate.getForObject(url, User.class);
     }
+
 
     public User findByUsername(String username) {
         String url = "http://localhost:8080/admin/rest/find/byUserName/" + username;

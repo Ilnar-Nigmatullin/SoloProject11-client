@@ -5,7 +5,8 @@ $(document).ready(function () {
 function getTable() {
     $.ajax({
         type: 'GET',
-        url: "/admin/rest/all",
+        crossDomain: true,
+        url: "http://localhost:8081/admin/rest/all",
         contentType: 'application/json;',
         headers: {
             'Accept': 'application/json',

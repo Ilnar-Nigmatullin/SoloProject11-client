@@ -35,11 +35,9 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'PUT',
-            url: "/admin/rest/update/" + userId,
-
+            url: "http://localhost:8081/admin/rest/update",
             contentType: 'application/json;',
             data: JSON.stringify(user),
-
             success: function () {
                 getTable();
             }
