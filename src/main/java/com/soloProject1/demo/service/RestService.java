@@ -22,39 +22,35 @@ public class RestService {
         this.restTemplate = restTemplate;
     }
 
+    private String url = "http://localhost:8080/admin/rest";
+
     public List<User> readUsers() {
-        String url = "http://localhost:8080/admin/rest/all";
-        User[] users = restTemplate.exchange(url, HttpMethod.GET, null, User[].class).getBody();
+        User[] users = restTemplate.exchange(url + "/all", HttpMethod.GET, null, User[].class).getBody();
         return Arrays.asList(users);
     }
 
     public void addUser(User user) {
-        String url = "http://localhost:8080/admin/rest/create";
         HttpEntity<User> request = new HttpEntity<>(user);
-//        Создайте новый ресурс, поместив указанный объект в URL-адрес, и вернет представление, найденное в ответе
-        restTemplate.postForObject(url, request, User.class);
+        restTemplate.postForObject(url + "/create", request, User.class);
     }
 
     public void updateUser(User user) {
-        String url = "http://localhost:8080/admin/rest/update";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<User> request = new HttpEntity<>(user, headers);
-        restTemplate.put(url, request, User.class);
+        restTemplate.put(url + "/update", request, User.class);
     }
 
     public void deleteUser(Integer id) {
-        String url = "http://localhost:8080/admin/rest/delete/" + id;
-        restTemplate.delete(url);
+        restTemplate.delete(url + "/delete/" + id);
     }
+
     @ResponseBody
     public User getUserById(Integer id) {
-        String url = "http://localhost:8080/admin/rest/update/" + id;
-        return restTemplate.getForObject(url, User.class);
+        return restTemplate.getForObject(url + "/update/" + id, User.class);
     }
 
 
     public User findByUsername(String username) {
-        String url = "http://localhost:8080/admin/rest/find/byUserName/" + username;
-        return restTemplate.getForObject(url, User.class);
+        return restTemplate.getForObject(url + "/find/byUserName/" + username, User.class);
     }
 }
